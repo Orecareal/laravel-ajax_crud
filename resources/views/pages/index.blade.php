@@ -4,17 +4,17 @@
 @include('layouts/update_modal')
 @include('layouts/functions')
 <div class="container">
-  <div class="row">
-    <div class="col-md-2"></div>
+  <div class="row justify-content-center">
       <div class="col-md-8">
         <h2 class="my-5 text-center">Laravel 9 Ajax CRUD</h2>
+        <input type="text" id='search' class="mb-3 form-control" placeholder="Search a product">
         <div class="mb-3">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
             Add Product
           </button>
         </div>
       <div class="table-data">
-        <table class="table">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th scope="col">No</th>

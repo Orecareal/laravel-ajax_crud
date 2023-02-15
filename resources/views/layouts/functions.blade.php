@@ -88,6 +88,7 @@
       product(page);
     })
 
+    // show list of products with pagination
     function product(page){
       $.ajax({
         url:"/pagination/paginate-data?page="+page,
@@ -97,5 +98,24 @@
         }
       });
     }
+
+    // search
+    $(document).on('keyup', function(e){
+      e.preventDefault();
+      let search_string = $('#search').val();
+      console.log(search_string);
+
+      $.ajax({
+        url: "{{ route('search.product')}}",
+        method: 'GET',
+        data: {search_string:search_string},
+        success: function(res){
+          $('.table-data').html(res);
+          if(res.status=="nothing_found"){
+            $('.table-data').html('<span class="text-danger">'+'Product not found'+'</span>');
+          }
+        }
+      });
+    });
 });
 </script>
